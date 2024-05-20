@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container-fluid w-100 vh-100 p-0">
+        <!-- Header -->
+        <div class="conatainer d-flex justify-content-between align-items-center px-3 header ">
+            <div class="logo d-flex justify-content-center align-items-center">
+                <img src="{{url_for('static',filename='img/logo 1 (1).png')}}" alt="logo" class="ms-5">
+                <div class="dropdown mx-sm-5">
+                    <button class="btn text-light   dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                       SELECT GPT
+                    </button>
+                    <ul class="dropdown-menu bg-dark  text-light ">
+                        <li><a class="dropdown-item  text-light my-2  " href="#">Gemini</a></li>
+                        <li><a class="dropdown-item text-light my-2  " href="#">OpenAI</a></li>
+                        <li><a class="dropdown-item text-light my-2  " href="#">Copilot</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu  ">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </div>
+        <!-- chatwindow -->
+        <div class="container-fluid  w-100  chatWindow">
+            <div class="row h-100">
+                <!-- left section -->
+                <div class="left-section  col-md-2">
+                    <h4 class="py-5 text-light">Previous Messages</h4>
+                    <p class="text">hii hello how r u? what happend ?</p>
+                    <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, sint?</p>
+                </div>
+                <!--  right section -->
+                <div class="right-section h-100  col-md-10 ">
+                    <!-- navbar -->
+                    <div class=" row navbar">
+                        <ul class="nav ">
+                            <li class="nav-item  ">
+                                <a class="nav-link p-0 active fw-semibold text-light" aria-current="page" href="#">Live
+                                    Chat</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a class="nav-link p-0  text-light" href="#">Voice Chat</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link p-0 fw-semibold text-light" href="#">Chat History</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- chat Message -->
+                    <div class="chat ">
+                        <div class="message-content h-100 overflow-y-auto" id="message-content"> </div>
+                        <!-- form section input text -->
+                        <div class="inputText">
+                            <form action="" method="">
+                                <div class="col d-flex ">
+                                    <input type="text" placeholder="Message Gpt" name="msg" id="msg" required>
+                                    <!-- send button -->
+                                    <button type="submit" class="button"><i
+                                            class="fa-solid fa-paper-plane"></i></button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+</body>
+
+</html>
