@@ -1,0 +1,63 @@
+/* Light Mode */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+body.light-mode .header {
+    background-color: #f8f9fa;
+}
+
+body.light-mode .main {
+    background-color: #ffffff;
+}
+
+body.light-mode .chat {
+    background-color: #ffffff;
+}
+
+body.light-mode #msg {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+body.light-mode .button {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+body.light-mode .footer {
+    background-color: #f8f9fa;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #000000;
+    color: white;
+}
+
+body.dark-mode .header {
+    background-color: #2A2828;
+}
+
+body.dark-mode .main {
+    background-color: #000000;
+}
+
+body.dark-mode .chat {
+    background-color: #000000;
+}
+
+body.dark-mode #msg {
+    background-color: #2D2D2D;
+    color: white;
+}
+
+body.dark-mode .button {
+    background-color: #2D2D2D;
+    color: white;
+}
+
+body.dark-mode .footer {
+    background-color: #000000;
+}
