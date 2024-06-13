@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2e2e2e;
+            color: #fff;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #444;
+            border: none;
+        }
+
+        .btn-outline-secondary {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        a {
+            color: #007bff;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .navbar-brand img {
+            max-width: 40px;
+        }
+
+        .container-fluid {
+            background-color: #2e2e2e;
+            color: #fff;
+        }
+
+        .card {
+            background-color: #444;
+            border: none;
+        }
+
+        .form-control {
+            background-color: #333;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            background-color: #333;
+            border-color: #777;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+        <a class="navbar-brand" href="#">
+            <img src="{{url_for('static',filename='img/logo 1 (1).png')}}" width="30" class="d-inline-block align-top" alt="Logo">
+
+        </a>
+
+    </nav>
+
+    <div class="container-fluid d-flex justify-content-center align-items-center ">
+        <div class="row w-100">
+            <div class="col-md-6 d-none d-md-flex justify-content-center align-items-center">
+                <img src="{{url_for('static',filename='img/register.png')}}" alt="Illustration" class="img-fluid">
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center pt-5">
+                <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px;">
+                    <div class="text-center mb-4">
+                        <h4>Try for free</h4>
+                    </div>
+                    <button class="btn btn-outline-secondary btn-block mb-3">
+                        <i class="fa-brands fa-google text-light"></i>
+                        Continue with Google
+                    </button>
+                    <div class="text-center mb-3">or</div>
+                    <form>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        Don't have an account? <a href="/register">Sign up</a>
+                    </div>
+                    <div class="text-center mt-2 small">
+                        By clicking "Create account", I agree to Figma's <a href="#">TOS</a> and <a href="#">Privacy
+                            Policy</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

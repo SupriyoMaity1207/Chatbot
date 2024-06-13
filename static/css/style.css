@@ -1,63 +1,256 @@
-/* Light Mode */
-body.light-mode {
-    background-color: white;
-    color: black;
+@font-face {
+    font-family: 'Ink Free';
+    src: url('fonts/InkFree.woff2') format('woff2'),
+        url('fonts/InkFree.woff') format('woff'),
+        url('fonts/InkFree.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-body.light-mode .header {
-    background-color: #f8f9fa;
+.font-family {
+    font-family: 'Ink Free', sans-serif;
 }
 
-body.light-mode .main {
-    background-color: #ffffff;
+body {
+    width: 100%;
+    height: 100vh;
 }
 
-body.light-mode .chat {
-    background-color: #ffffff;
-}
-
-body.light-mode #msg {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-body.light-mode .button {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-body.light-mode .footer {
-    background-color: #f8f9fa;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #000000;
-    color: white;
-}
-
-body.dark-mode .header {
+.header {
+    width: 100%;
+    height: 8%;
     background-color: #2A2828;
 }
 
-body.dark-mode .main {
+.avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.main {
+    width: 100%;
+    height: 87%;
     background-color: #000000;
 }
 
-body.dark-mode .chat {
+.chat {
+    height: 100%;
     background-color: #000000;
+    position: relative;
 }
 
-body.dark-mode #msg {
-    background-color: #2D2D2D;
+.message-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px 100px 70px 100px;
+}
+
+.inputText {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    padding: 10px 50px 0 50px;
+    background-color: #000000
+}
+
+#msg {
+    width: 80%;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 20px;
+    outline: 0;
+    border: 0;
+    margin-right: 10px;
     color: white;
-}
-
-body.dark-mode .button {
+    /* Set text color to white */
     background-color: #2D2D2D;
-    color: white;
 }
 
-body.dark-mode .footer {
+.button {
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    border: none;
+    background-color: #2D2D2D;
+}
+
+.welcomeDiv {
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.welcomeImage {
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 35px;
+    text-align: center;
+    font-family: 'Ink Free', sans-serif;
+    margin-bottom: 10px;
+    /* Add some space between the image and the message */
+}
+
+.message-content {
+    overflow-y: auto;
+    /* Example height, adjust as needed */
+}
+
+.message-container {
+    display: flex;
+    /* align-items: center; */
+    margin-bottom: 10px;
+}
+
+.message {
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 8px;
+    /* Add some space between message and image */
+}
+
+.right-container {
+    justify-content: flex-end;
+}
+
+.right-message {
+    background-color: #193940;
+    color: white;
+    max-width: 600px;
+    /* Light blue background for user message */
+}
+
+.left-container {
+    justify-content: flex-start;
+}
+
+.left-message {
+    background-color: #193940;
+    /* Light gray background for server message */
+    color: white;
+    max-width: 600px;
+}
+
+.image {
+    width: 30px;
+    /* Adjust image size as needed */
+    height: 30px;
+    border-radius: 50%;
+    /* Make images circular */
+    border: 2px solid white;
+}
+
+.right-image {
+    margin-left: 10px;
+    /* Add some space between image and message */
+}
+
+.left-image {
+    margin-right: 1px;
+    font-family: 'Ink Free', sans-serif;
+    /* Add some space between image and message */
+}
+
+
+
+.serverSpeech {
+    color: white;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.footer {
+    width: 100%;
+    height: 5%;
     background-color: #000000;
+}
+
+.footer-para {
+    color: #007bff;
+    font-size: 15px;
+}
+
+.mic-icon {
+    position: absolute;
+    right: 16%;
+    top: 55%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.mic-icon:hover {
+    color: #007bff;
+
+}
+
+@media only screen and (max-width: 1020px) {
+
+
+    .mic-icon {
+        right: 20%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .message-content {
+        padding: 10px 50px 70px 50px;
+    }
+
+    .mic-icon {
+        right: 22%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .message-content {
+        padding: 10px 20px 70px 20px;
+    }
+
+    #msg {
+        width: 90%;
+    }
+
+    .inputText {
+        padding: 10px 15px 0 15px;
+    }
+
+    .footer-para {
+        color: #007bff;
+        font-size: 10px;
+    }
+
+    .mic-icon {
+
+        right: 19%;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    #msg {
+        width: 100%;
+    }
+
+    .inputText {
+        padding: 10px 10px 0 10px;
+    }
+
+    .mic-icon {
+
+        right: 22%;
+    }
 }

@@ -8,11 +8,22 @@ app = Flask(__name__)
 
 # Define a route for the root URL ("/")
 @app.route('/')
-def chat():
+def index():
     return render_template ("index.html")
+
 
 @app.route('/', methods=['post'])
 def getdata():
+    return gemini_model()
+
+
+@app.route('/voice')
+def voice():
+    return render_template ("voice.html")
+
+
+@app.route('/voice', methods=['post'])
+def getvoice():
     return gemini_model()
 
 # Check if the executed file is the main program and run the app
