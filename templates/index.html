@@ -11,14 +11,54 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
     <style>
-        .voice-nav{
-           text-decoration: none;
-           color: white;
+        .voice-nav {
+            text-decoration: none;
+            color: white;
         }
+
+        .profile-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-menu img {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .profile-menu img:hover {
+            transform: scale(1.1);
+        }
+
+        .dropdown-menu-custom {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background-color: #131313;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-menu-custom a {
+            color: #000000;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu-custom a:hover {
+            background-color: #201f1f;
+        }
+
+      
     </style>
 </head>
 <body>
-    <div class="container-fluid  p-0 vh-100 ">
+    <div class="container-fluid p-0 vh-100">
         <!-- navbar -->
         <div class="container-fluid p-0 header">
             <nav class="navbar navbar-expand-lg">
@@ -27,30 +67,24 @@
                         <div class="text-light font-family">SM</div>
                     </div>
                     <div class="voiceChat">
-                       <a href="/voice" class="voice-nav">Voice Assistant</a>
+                        <a href="/voice" class="voice-nav">Voice Assistant</a>
                     </div>
-                    <div class="right-side d-flex justify-content-between align-items-center">
-                       <div class="user-profile">
-                            <img src="{{url_for('static',filename='images/user.png')}}" alt="user-profile"
-                                class="avatar">
+                    <div class="profile-menu right-side d-flex justify-content-between align-items-center">
+                        <img src="{{url_for('static',filename='images/user.png')}}" alt="User Icon" 
+                            class="rounded-circle avatar" id="profileIcon" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu-custom" id="profileDropdown" aria-labelledby="profileIcon">
+                            <a class="dropdown-item text-light" href="#">Profile</a>
+                            <a class="dropdown-item text-light" href="#">Log out</a>
                         </div>
                     </div>
-                    <!-- <div class="profile-menu">
-                        <img src="{{url_for('static',filename='images/user.png')}}" alt="User Icon" height="40"
-                            class="rounded-circle" id="profileIcon">
-                        <div class="dropdown-menu-custom" id="profileDropdown">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <a class="dropdown-item" href="#">Log out</a>
-                        </div>
-                    </div> -->
                 </div>
             </nav>
         </div>
         <!-- navbar -->
         <!-- chat section -->
-        <div class="container-fluid  p-0  main">
+        <div class="container-fluid p-0 main">
             <div class="chat pt-3">
-                <div class="message-content h-100  overflow-y-auto " id="message-content">
+                <div class="message-content h-100 overflow-y-auto" id="message-content">
                 </div>
                 <!-- input section -->
                 <div class="inputText">
@@ -66,12 +100,39 @@
         </div>
         <!-- chat section -->
         <!-- footer -->
-        <div class="container-fluid p-0 text-center py-2  footer">
+        <div class="container-fluid p-0 text-center py-2 footer">
             <p class="footer-para">© 2024 Supriyo. All rights reserved.</p>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileIcon = document.getElementById("profileIcon");
+            const profileDropdown = document.getElementById("profileDropdown");
+
+            profileIcon.addEventListener("click", function (event) {
+                event.stopPropagation();
+                const expanded = profileIcon.getAttribute("aria-expanded") === "true" || false;
+                profileIcon.setAttribute("aria-expanded", !expanded);
+                profileDropdown.style.display = profileDropdown.style.display === "block" ? "none" : "block";
+            });
+
+            window.addEventListener("click", function (event) {
+                if (!profileIcon.contains(event.target) && !profileDropdown.contains(event.target)) {
+                    profileDropdown.style.display = "none";
+                    profileIcon.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            const uploadButtons = document.querySelectorAll('.upload');
+            uploadButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    alert("Successful upload");
+                });
+            });
+        });
+    </script>
     <script src="{{url_for('static',filename='js/script.js')}}"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
