@@ -89,7 +89,7 @@ document.querySelector('form').addEventListener("submit", async function (event)
     // Send the data to the server (replace with your actual server interaction logic)
     try {
         // Simulate server response (replace with actual fetch call)
-        let response = await fetch('/', {
+        let response = await fetch('/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json' // Set content type to JSON

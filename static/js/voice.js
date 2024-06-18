@@ -80,7 +80,7 @@ if (!SpeechRecognition) {
 
                 // Send the message to the server
                 try {
-                    let response = await fetch('/voice', {
+                    let response = await fetch('/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json' // Set content type to JSON
