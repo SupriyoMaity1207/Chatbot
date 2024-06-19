@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from dotenv import load_dotenv
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_google_community import GoogleSearchAPIWrapper
 from langchain_core.tools import Tool
@@ -6,15 +7,15 @@ import os
 import markdown2
 
 app = Flask(__name__)
+load_dotenv()  # Load environment variables from .env file
 
-# Set up API keys
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyAvGhNC698GNrRZbhXv9BxmDErHqSAxmlU'
+# Set up API keys from environment variabless
+google_api_key = os.getenv('GOOGLE_API_KEY')
+google_cse_id = os.getenv('GOOGLE_CSE_ID')
+google_search_api_key = os.getenv('GOOGLE_SEARCH_API_KEY')
+
+# Initialize Google Generative AI and Google Search API
 llms = GoogleGenerativeAI(model="gemini-pro")
-
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyBFazGst7gU84Ts-Xjf7BATBDBxomhcnMI'
-os.environ["GOOGLE_CSE_ID"] = "b5ad7c4f4ca0f406a"
-
-# Create Google Search Tool
 search = GoogleSearchAPIWrapper(k=2)
 tool = Tool(name="google_search", description="Search Google for recent results.", func=search.run)
 
@@ -39,7 +40,7 @@ def gemini_model():
         query = data.get('sendQuery', '')
 
         # Simple heuristic to determine if we should use search or model
-        if any(term in query.lower() for term in ["2023", "2024", "latest", "recent", "today", "tomorrow",'next','live']):
+        if any(term in query.lower() for term in ["2023", "2024", "latest", "recent", "today", "tomorrow", 'next', 'live']):
             # Use Google Search for recent queries
             response = google_search(query)
         else:
@@ -50,3 +51,5 @@ def gemini_model():
     else:
         return jsonify({'error': 'Request must be JSON'}), 400
 
+if __name__ == '__main__':
+    app.run(debug=True)
